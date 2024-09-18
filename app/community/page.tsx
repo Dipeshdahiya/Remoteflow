@@ -36,7 +36,7 @@ const Community = () => {
     }
 
     return (
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen cursor-default">
             {/* Navbar at the top */}
             <Link
                 href="/"

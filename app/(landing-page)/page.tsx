@@ -17,7 +17,7 @@ const LandingPage = () => {
 
 
   return (
-    <div className="">
+    <div className="cursor-default">
       {loading && <PreLoader />}
       <Navbar />
       <HeroSection />

@@ -74,7 +74,7 @@ const AuthPage = () => {
     };
 
     return (
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen cursor-default">
             {/* Go Back button */}
             <Link
                 href="/"

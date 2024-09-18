@@ -1,13 +1,29 @@
 "use client"; // Ensures it's a Client Component
 
 import React, { useState } from 'react';
-import { FaTimes, FaUser, FaCalendarAlt, FaSave, FaSignOutAlt, FaCog } from 'react-icons/fa'; // Importing icons
+import {
+  FaTimes,
+  FaUser,
+  FaCalendarAlt,
+  FaSave,
+  FaSignOutAlt,
+  FaCog,
+} from 'react-icons/fa'; // Importing icons
+import Calendar from './Calander'; // Import the Calendar component
 
 const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
+    if (!isOpen) {
+      setIsCalendarOpen(false); // Close calendar when sidebar closes
+    }
+  };
+
+  const toggleCalendar = () => {
+    setIsCalendarOpen(!isCalendarOpen);
   };
 
   return (
@@ -49,7 +65,10 @@ const Sidebar: React.FC = () => {
           <button className="text-white hover:text-gray-300">
             <FaCog size={22} title="Settings" />
           </button>
-          <button className="text-white hover:text-gray-300">
+          <button
+            className="text-white hover:text-gray-300"
+            onClick={toggleCalendar}
+          >
             <FaCalendarAlt size={22} title="Calendar" />
           </button>
           <button className="text-white hover:text-gray-300">
@@ -68,6 +87,9 @@ const Sidebar: React.FC = () => {
           onClick={toggleSidebar}
         ></div>
       )}
+
+      {/* Render Calendar when isCalendarOpen is true */}
+      {isCalendarOpen && <Calendar />}
     </>
   );
 };

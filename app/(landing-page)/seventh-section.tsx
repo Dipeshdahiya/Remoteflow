@@ -12,7 +12,6 @@ import {
 } from "react-icons/pi";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 import { useState, useEffect } from "react";
 
 const items = [
@@ -77,34 +76,25 @@ const SeventhSection = () => {
           whileInView="visible"
           variants={fadeUpVariants}
           custom={0}
-          className={`text-3xl xl:text-5xl font-medium justify-center items-center flex 
-          `}
+          className="text-3xl xl:text-5xl font-medium justify-center items-center flex"
         >
           Endless ways to use it
         </motion.div>
       </div>
       <div className="grid xl:grid-cols-4 md:grid-cols-2 gap-4 xl:gap-6 mt-8 px-8 md:px-16 xl:px-0 xl:w-3/4 2xl:w-[55%] mx-auto md:w-full">
         {items.map((item, index) => {
-          const { ref: itemRef, inView: itemInView } = useInView({
-            triggerOnce: true,
-            threshold: 0.1,
-          });
           return (
             <motion.div
               key={index}
-              ref={itemRef}
               initial="hidden"
-              animate={itemInView ? "visible" : "hidden"}
+              whileInView="visible"
               variants={fadeUpVariants}
               custom={index + 1}
               className={`${
                 index === 0
                   ? "xl:col-span-2 xl:row-span-3 md:col-span-2 border flex-col md:flex-row xl:flex-col"
                   : ""
-              }
-               p-6 rounded-xl flex ${
-                index === 0 ? "justify-between" : ""
-              }`}              
+              } p-6 rounded-xl flex ${index === 0 ? "justify-between" : ""}`}
             >
               <div className="flex flex-col">
                 {item.icon}
@@ -113,11 +103,8 @@ const SeventhSection = () => {
               {item.image && (
                 <div
                   className={`${
-                    index !== 0
-                      ? "justify-between"
-                      : "flex-col justify-end"
-                  }
-                  `}
+                    index !== 0 ? "justify-between" : "flex-col justify-end"
+                  }`}
                 >
                   <Image
                     src={item.image}

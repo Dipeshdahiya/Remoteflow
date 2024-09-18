@@ -9,7 +9,7 @@ import SettingsButton from './components/SettingsButton';
 
 const WorkspacePage: React.FC = () => {
   return (
-    <div className="min-h-screen flex">
+    <div className="min-h-screen flex cursor-default">
       <Sidebar />
       <div className="flex-grow flex flex-col">
 
