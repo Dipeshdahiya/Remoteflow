@@ -5,25 +5,37 @@ import {
   FaTimes,
   FaUser,
   FaCalendarAlt,
+  FaCalculator, // Add calculator icon
   FaSave,
   FaSignOutAlt,
   FaCog,
 } from 'react-icons/fa'; // Importing icons
-import Calendar from './Calander'; // Import the Calendar component
+import Calendar from './Calendar'; // Import the Calendar component
+import Calculator from './Calculator'; // Import the Calculator component
 
 const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+  const [isCalculatorOpen, setIsCalculatorOpen] = useState(false); // New state for calculator
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
     if (!isOpen) {
       setIsCalendarOpen(false); // Close calendar when sidebar closes
+      setIsCalculatorOpen(false); // Close calculator when sidebar closes
     }
   };
 
   const toggleCalendar = () => {
     setIsCalendarOpen(!isCalendarOpen);
+    setIsCalculatorOpen(false); // Close calculator when calendar is opened
+    setIsOpen(false); // Close sidebar
+  };
+
+  const toggleCalculator = () => {
+    setIsCalculatorOpen(!isCalculatorOpen);
+    setIsCalendarOpen(false); // Close calendar when calculator is opened
+    setIsOpen(false); // Close sidebar
   };
 
   return (
@@ -67,6 +79,12 @@ const Sidebar: React.FC = () => {
           </button>
           <button
             className="text-white hover:text-gray-300"
+            onClick={toggleCalculator} // Add the onClick action for the calculator
+          >
+            <FaCalculator size={22} title="Calculator" />
+          </button>
+          <button
+            className="text-white hover:text-gray-300"
             onClick={toggleCalendar}
           >
             <FaCalendarAlt size={22} title="Calendar" />
@@ -90,6 +108,9 @@ const Sidebar: React.FC = () => {
 
       {/* Render Calendar when isCalendarOpen is true */}
       {isCalendarOpen && <Calendar />}
+
+      {/* Render Calculator when isCalculatorOpen is true */}
+      {isCalculatorOpen && <Calculator />} {/* Calculator component */}
     </>
   );
 };
