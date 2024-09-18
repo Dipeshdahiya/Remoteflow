@@ -1,17 +1,20 @@
-// app/workspace/components/WorkspaceContent.tsx
+// src/pages/workspace.tsx
 import React from 'react';
+import CoverImage from './workcontent/CoverImage';
+import TopCont from './workcontent/topcont';
+import TextCont from './workcontent/textcont';
 
-const WorkspaceContent: React.FC = () => {
+const Workspace: React.FC = () => {
   return (
-    <div className="flex-grow p-8">
-      <h1 className="text-3xl font-semibold mb-6">Workspace</h1>
-      <div className="border p-6 rounded-lg shadow-lg">
-        <p className="text-lg">
-          This is the main workspace where your content will appear.
-        </p>
-      </div>
+    <div className='w-full h-[100vh] overflow-hidden'>
+      <CoverImage defaultImage="/path/to/default-image.jpg" />
+      <TopCont 
+        defaultLogo="/path/to/default-logo.png" 
+        defaultProfileImage="/path/to/default-profile-image.jpg" 
+      />
+      <TextCont />
     </div>
   );
 };
 
-export default WorkspaceContent;
+export default Workspace;

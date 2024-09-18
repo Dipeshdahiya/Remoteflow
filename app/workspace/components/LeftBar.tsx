@@ -86,7 +86,7 @@ const LeftSidebar: React.FC = () => {
 
       {/* Left Sidebar */}
       <div
-        className={`lg:relative text-sm z-10 fixed lg:left-0 lg:top-0 top-0 h-full w-64 shadow-xl flex flex-col p-6 transition-all duration-300 ease-in-out z-20 lg:translate-x-0 ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+        className={`lg:relative text-sm z-10 fixed lg:left-0 lg:top-0 top-0 h-full w-[300px] shadow-xl flex flex-col p-6 transition-all duration-300 ease-in-out z-20 lg:translate-x-0 ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
           } lg:block bg-white text-black dark:bg-black dark:text-white border`}
       >
         {/* Logo */}
