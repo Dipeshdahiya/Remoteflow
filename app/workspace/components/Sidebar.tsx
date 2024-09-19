@@ -43,7 +43,7 @@ const Sidebar: React.FC = () => {
       {/* Modern Circle-in-Circle Button */}
       <button
         onClick={toggleSidebar}
-        className={`fixed bottom-4 right-4 z-30 p-2 w-10 h-10 bg-black text-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 ${
+        className={`fixed bottom-6 right-4 z-30 p-2 w-10 h-10 bg-black text-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 ${
           isOpen ? 'rotate-45' : ''
         } flex items-center justify-center align-center`}
       >
@@ -61,7 +61,7 @@ const Sidebar: React.FC = () => {
 
       {/* Sliding Sidebar */}
       <div
-        className={`fixed border bottom-16 right-4 w-10 bg-black p-3 rounded-full transition-all duration-300 ease-in-out z-20 shadow-xl flex flex-col items-center overflow-hidden ${
+        className={`fixed border bottom-[70px] right-4 w-10 bg-black p-3 rounded-full transition-all duration-300 ease-in-out z-20 shadow-xl flex flex-col items-center overflow-hidden ${
           isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
         }`}
       >

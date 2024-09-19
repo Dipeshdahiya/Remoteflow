@@ -67,13 +67,13 @@ const TopCont: React.FC<TopContProps> = ({
       {/* Right Section with Profile Image */}
       <div className="relative flex items-center ml-[12px]">
         {/* Background Circle with Plus Icon */}
-        <div className="absolute w-12 h-12 rounded-full bg-gray-600 dark:bg-gray-300 ml-6 flex items-center justify-center">
+        <div className="absolute w-10 h-10 rounded-full bg-gray-600 dark:bg-gray-300 ml-6 flex items-center justify-center">
           <span className="text-4xl font-bold text-gray-100 dark:text-gray-900">+</span>
         </div>
 
         {/* Profile Image */}
         <div
-          className="relative cursor-pointer" // Move profile image to reveal the circle
+          className="relative cursor-pointer" 
           onClick={() => document.getElementById('profileImageUpload')?.click()}
         >
           <img

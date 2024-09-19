@@ -22,7 +22,7 @@ const LeftSidebar: React.FC = () => {
   const addNewNotebook = () => {
     setNotebooks([...notebooks, { name: "Untitled", pages: [] }]); // Adds a new notebook
   };
-
+  
   const addPage = (notebookIndex: number) => {
     const updatedNotebooks = [...notebooks];
     updatedNotebooks[notebookIndex].pages.push("Page One"); // Adds a new page with default text
@@ -86,7 +86,7 @@ const LeftSidebar: React.FC = () => {
 
       {/* Left Sidebar */}
       <div
-        className={`lg:relative text-sm z-10 fixed lg:left-0 lg:top-0 top-0 h-full w-[300px] shadow-xl flex flex-col p-6 transition-all duration-300 ease-in-out z-20 lg:translate-x-0 ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+        className={`lg:relative  text-sm z-10 fixed lg:left-0 lg:top-0 top-0 h-full w-[300px] shadow-xl flex flex-col p-6 transition-all duration-300 ease-in-out z-20 lg:translate-x-0 ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
           } lg:block bg-white text-black dark:bg-black dark:text-white border`}
       >
         {/* Logo */}
@@ -133,7 +133,7 @@ const LeftSidebar: React.FC = () => {
           </button>
 
           {/* Notebooks List */}
-          <div className="flex flex-col overflow-y-auto" style={{ maxHeight: 'calc(100vh - 350px)' }}>
+          <div className="flex  flex-col  w-full h-full overflow-y-auto" style={{ maxHeight: 'calc(100vh - 350px)',minHeight: 'calc(100vh - 350px)' }}>
             <div className="space-y-1">
               {notebooks.map((notebook, notebookIndex) => (
                 <div
@@ -194,7 +194,7 @@ const LeftSidebar: React.FC = () => {
                   {dropdownIndex === notebookIndex && (
                     <div
                       ref={dropdownRef}
-                      className="border absolute z-20 top-full right-0 w-40 bg-white dark:bg-black shadow-md rounded p-2 z-30"
+                      className="border absolute z-100 top-full right-0 w-40 bg-white dark:bg-black shadow-md rounded p-2 z-30"
                     >
                       <div className="flex items-center space-x-2 p-1 pl-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded cursor-pointer">
                         <FaEdit size={14} />

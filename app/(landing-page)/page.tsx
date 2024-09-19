@@ -10,7 +10,7 @@ import SixthSection from "./sixth-section";
 import SeventhSection from "./seventh-section";
 import GetStartedFree from "./eighth-section";
 import Footer from "@/components/footer";
-import PreLoader from "@/components/loadingscreen"; // Import the PreLoader component
+import PreLoader from "@/components/loadingscreen"; 
 
 const LandingPage = () => {
   const [loading, setLoading] = useState(true);

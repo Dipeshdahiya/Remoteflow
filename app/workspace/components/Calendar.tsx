@@ -79,7 +79,7 @@ const Calendar: React.FC = () => {
   const weatherInfo = "25°C, Clear Sky";
 
   return (
-    <div className="cursor-default text-sm fixed right-20 bottom-8 max-w-md mx-auto border rounded-lg shadow-lg p-5 bg-white dark:bg-black text-black dark:text-white">
+    <div className="cursor-default z-20 text-sm fixed right-20 bottom-8 max-w-md mx-auto border rounded-lg shadow-lg p-5 bg-white dark:bg-black text-black dark:text-white">
       {/* Time and Weather Section */}
       <div className="mb-4">
         <div className="flex justify-between items-center">

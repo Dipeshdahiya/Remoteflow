@@ -56,7 +56,7 @@ const Calculator: React.FC = () => {
   };
 
   return (
-    <div className="fixed right-16 bottom-8 max-w-md mx-auto border rounded-lg shadow-lg p-4 bg-white dark:bg-black text-black dark:text-white">
+    <div className="fixed z-20 right-16 bottom-8 max-w-md mx-auto border rounded-lg shadow-lg p-4 bg-white dark:bg-black text-black dark:text-white">
       <div className="mb-4">
         <input
           type="text"
