@@ -104,7 +104,7 @@ const TextCont: React.FC = () => {
       <textarea
         value={content}
         onChange={handleChange}
-        className="mt-6 w-full h-full transform-all duration-300 dark:bg-black p-4 border-none outline-none resize-none" style={{ maxHeight: "calc(100vh - 350px)" }}
+        className="mt-6 text-justify w-full h-full transform-all duration-300 dark:bg-black p-4 border-none outline-none resize-none" style={{ maxHeight: "calc(100vh - 350px)" }}
         placeholder="Start making your own notebook here..."
       />
 
