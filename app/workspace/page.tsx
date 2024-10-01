@@ -9,9 +9,9 @@ import SettingsButton from './components/SettingsButton';
 
 const WorkspacePage: React.FC = () => {
   return (
-    <div className="min-h-screen flex cursor-default">
+    <div className="flex min-h-screen cursor-default">
       <Sidebar />
-      <div className="flex-grow flex flex-col">
+      <div className="flex flex-col flex-grow">
 
         <div className="flex flex-grow">
           <LeftBar />
