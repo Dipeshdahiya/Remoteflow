@@ -33,64 +33,77 @@ const TopCont: React.FC<TopContProps> = ({
 
   return (
     <div className="relative w-full h-[80px] px-[20px] py-[10px] flex pl-10 pr-20 items-center justify-between">
-      {/* Left Section with Logo and Heading */}
-      <div className="flex items-center">
-        {/* Logo with upload functionality */}
-        <div
-          className="cursor-pointer p-2"
-          onClick={() => document.getElementById('logoUpload')?.click()}
-        >
-          <img
-            src={logo}
-            alt="Logo"
-            className="w-24 h-24 object-cover bg-white dark:bg-black p-3 mt-[-60px] rounded-[50%]"
-          />
-          <input
-            id="logoUpload"
-            type="file"
-            accept="image/*"
-            className="hidden"
-            onChange={handleLogoUpload}
-          />
-        </div>
-
-        {/* Heading next to the logo */}
-        <input
-          type="text"
-          value={heading}
-          onChange={(e) => setHeading(e.target.value)}
-          className="ml-4 text-3xl font-semibold outline-none bg-transparent"
-          placeholder="Untitled"
+    {/* Left Section with Logo and Heading */}
+    <div className="flex items-center">
+      {/* Logo with upload functionality */}
+      <div
+        className="relative cursor-pointer p-2 group"
+        onClick={() => document.getElementById('logoUpload')?.click()}
+      >
+        <img
+          src={logo}
+          alt="Logo"
+          className="w-24 h-24 object-cover bg-white dark:bg-black p-3 mt-[-60px] rounded-[50%]"
         />
+        <input
+          id="logoUpload"
+          type="file"
+          accept="image/*"
+          className="hidden"
+          onChange={handleLogoUpload}
+        />
+        {/* Tooltip for Logo */}
+        <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 w-max p-1 text-sm text-white bg-black rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          Upload Logo
+        </span>
       </div>
-
-      {/* Right Section with Profile Image */}
-      <div className="relative flex items-center ml-[12px]">
-        {/* Background Circle with Plus Icon */}
-        <div className="absolute w-10 h-10 rounded-full bg-gray-600 dark:bg-gray-300 ml-6 flex items-center justify-center">
-          <span className="text-4xl font-bold text-gray-100 dark:text-gray-900">+</span>
-        </div>
-
-        {/* Profile Image */}
-        <div
-          className="relative cursor-pointer" 
-          onClick={() => document.getElementById('profileImageUpload')?.click()}
-        >
-          <img
-            src={profileImage}
-            alt="Profile"
-            className="w-12 h-12 object-cover rounded-full"
-          />
-          <input
-            id="profileImageUpload"
-            type="file"
-            accept="image/*"
-            className="hidden"
-            onChange={handleProfileImageUpload}
-          />
-        </div>
+  
+      {/* Heading next to the logo */}
+      <input
+        type="text"
+        value={heading}
+        onChange={(e) => setHeading(e.target.value)}
+        className="ml-4 text-3xl font-semibold outline-none bg-transparent"
+        placeholder="Untitled"
+      />
+      {/* Tooltip for Heading */}
+      <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 w-max p-1 text-sm text-white bg-black rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        Enter Title
+      </span>
+    </div>
+  
+    {/* Right Section with Profile Image */}
+    <div className="relative flex items-center ml-[12px]">
+      {/* Background Circle with Plus Icon */}
+      <div className="absolute w-10 h-10 rounded-full bg-gray-600 dark:bg-gray-300 ml-6 flex items-center justify-center">
+        <span className="text-4xl font-bold text-gray-100 dark:text-gray-900">+</span>
+      </div>
+  
+      {/* Profile Image */}
+      <div
+        className="relative cursor-pointer group"
+        onClick={() => document.getElementById('profileImageUpload')?.click()}
+      >
+        <img
+          src={profileImage}
+          alt="Profile"
+          className="w-12 h-12 object-cover rounded-full"
+        />
+        <input
+          id="profileImageUpload"
+          type="file"
+          accept="image/*"
+          className="hidden"
+          onChange={handleProfileImageUpload}
+        />
+        {/* Tooltip for Profile Image */}
+        <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 w-max p-1 text-sm text-white bg-black rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          Upload Profile Image
+        </span>
       </div>
     </div>
+  </div>
+  
   );
 };
 

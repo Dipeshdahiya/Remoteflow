@@ -101,29 +101,43 @@ const TextCont: React.FC = () => {
 
   return (
     <div className="relative bg-bl border-t h-full transform-all duration-300 dark:bg-black pl-12 pr-20 overflow-y-auto" style={{ maxHeight: "calc(100vh - 260px)" }}>
-      <textarea
-        value={content}
-        onChange={handleChange}
-        className="mt-6 text-justify w-full h-full transform-all duration-300 dark:bg-black p-4 border-none outline-none resize-none" style={{ maxHeight: "calc(100vh - 350px)" }}
-        placeholder="Start making your own notebook here..."
-      />
-
-      {/* Microphone and Speaker Icons */}
-      <div className="absolute bottom-0 left-12 flex space-x-4">
+    <textarea
+      value={content}
+      onChange={handleChange}
+      className="mt-6 text-justify w-full h-full transform-all duration-300 dark:bg-black p-4 border-none outline-none resize-none" style={{ maxHeight: "calc(100vh - 350px)" }}
+      placeholder="Start making your own notebook here..."
+    />
+  
+    {/* Microphone and Speaker Icons */}
+    <div className="absolute bottom-0 left-12 flex space-x-4">
+      <div className="relative group">
         <button 
           onClick={handleToggleRecording}
           className={`p-2 rounded-[50%] transition-all duration-200 ${isRecording ? 'text-red-600 bg-white dark:bg-black hover:bg-red-600' : 'bg-gray-300 dark:bg-gray-900 hover:bg-gray-400'} dark:hover:bg-gray-800`}
         >
           <FaMicrophone size={20} />
         </button>
+        {/* Tooltip for Microphone */}
+        <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 w-max p-1 text-sm text-white bg-black rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          {isRecording ? "Stop Recording" : "Start Recording"}
+        </span>
+      </div>
+  
+      <div className="relative group">
         <button 
           onClick={handleToggleSpeech}
           className={`p-2 rounded-full ${isSpeaking ? 'text-green-600 bg-white dark:bg-black hover:bg-green-600' : 'bg-gray-300 dark:bg-gray-900 hover:bg-gray-400'} transition-all duration-200 dark:hover:bg-gray-800`}
         >
           <FaVolumeUp size={20} />
         </button>
+        {/* Tooltip for Speaker */}
+        <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 w-max p-1 text-sm text-white bg-black rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          {isSpeaking ? "Stop Speaking" : "Start Speaking"}
+        </span>
       </div>
     </div>
+  </div>
+  
   );
 };
 
