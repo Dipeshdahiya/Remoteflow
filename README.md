@@ -1,6 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
+  <img src="./readme_images/banner.png" alt="banner" />
+</div>
+<div align="center">
+  <img alt="GitHub repo size" src="https://img.shields.io/github/contributors/Dipeshdahiya/Remoteflow?style=for-the-badge&color=white">
+  <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/Dipeshdahiya/Remoteflow?style=for-the-badge&color=white">
+  <img alt="GitHub forks" src="https://img.shields.io/github/forks/Dipeshdahiya/Remoteflow?style=for-the-badge&color=white">
+   <a href="https://github.com/Dipeshdahiya/Remoteflow/graphs/contributors">
+  <img alt="Last commit" src="https://img.shields.io/github/last-commit/neerajrathore/javascript-handbook?style=for-the-badge&color=white">
+</div>
+<br><br>
 
-## Getting Started
+```RemoteFlow``` is a user-friendly, collaborative notes-making platform designed to streamline team collaboration. It features a secure login and signup system, a dynamic dashboard for easy navigation, and seamless real-time editing. With its intuitive interface, users can effortlessly manage notes, collaborate with team members, and track document changes. The dashboard ensures easy access to ongoing projects, while the responsive design guarantees a smooth experience across all devices. Whether for personal organization or team productivity, RemoteFlow simplifies the way users interact and work together online.
+
+<br><br>
+
+## ⚛️ Project Structure ⚛️
+```bash
+RemoteFlow/
+├── app/                      # Application logic
+├── components/               # Reusable components
+├── lib/                      # Library or utility functions
+├── prisma/                   # Prisma setup for database
+├── public/                   # Public assets like images, etc.
+├── readme_images/            # Images for the README
+├── .env.example              # Example environment variables
+├── .eslintrc.json            # ESLint configuration
+├── .gitignore                # Git ignore rules
+├── components.json           # Component registry/configuration
+├── global.d.ts               # Global TypeScript declarations
+├── middleware.ts             # Middleware logic
+├── next.config.js            # Next.js configuration
+├── package.json              # npm configuration and dependencies
+├── package-lock.json         # Lockfile for npm dependencies
+├── postcss.config.js         # PostCSS configuration
+├── README.md                 # Project documentation
+├── tailwind.config.js        # Tailwind CSS configuration (JS)
+├── tailwind.config.ts        # Tailwind CSS configuration (TS)
+├── tsconfig.json             # TypeScript configuration
+
+```
+
+<br><br>
+
+## 👉 Getting Started 👍
 
 First, run the development server:
 
@@ -34,3 +76,59 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+<br><br> 
+
+## ❓ How To Contribute ❓
+
+  ### 1️⃣ Getting Started
+
+  - **Fork**: Grab your personal copy by forking the repository.
+  - **Clone**: Bring it on your local machine with git clone YOUR-REPO-LINK.
+  - **Setup**: Install necessary tools. Just run command.
+
+  ### 2️⃣ Making Meaningful Changes
+
+  - **Understand**: Dive deep and understand the project structure.
+  - **Code**: Always follow our coding standards. We believe in clean and readable code!
+
+  ### 3️⃣ Share Your Brilliance: Create a Pull Request
+
+  - **Test**: Before anything, make sure everything works as expected.
+  - **Branch**: Keep it clean. Create a new one with `git checkout -b feature/your-feature-name`.
+  - **Commit**: Make it meaningful! Use `git commit -m 'Add some feature'`.
+  - **Push**: Send your changes with `git push origin feature/your-feature-name`.
+  - **PR**: Last but not least, open a pull request. We promise to review it as soon as possible!## 💡 How to Contribute
+</div>
+
+<br><br>
+
+## 📲 Check Responsive 📲
+
+```RemoteFlow``` is designed with a mobile-first approach, ensuring usability across all devices. Click the image below to check its responsive design.
+
+<div align="center">
+  <a href="https://ui.dev/amiresponsive?url=https://remoteflow.vercel.app/" target="_blank">
+    <img src="./readme_images/responsive.png" alt="Responsive design demonstration" />
+  </a>
+</div>
+
+<br><br>
+
+<div>
+  <h2>🙌 Our Amazing Contributors 🙌</h2>
+  <a href="https://github.com/Dipeshdahiya/Remoteflow/graphs/contributors" align="center">
+  <img src="https://contrib.rocks/image?repo=Dipeshdahiya/Remoteflow" />
+</a>
+</div>
+<br><br>
+<div align="center">
+  <img src="https://contrib.rocks/image?repo=Dipeshdahiya/Investment-bot" alt="Contributions" align="left">
+  <h3 align="left">Maintained By - Dipesh Dahiya <br>(https://github.com/Dipeshdahiya)</h3>
+</div>
+<br><br>
+
+<div align="center">
+<a href="https://github.com/priyamaggarwal18"><img src="https://img.shields.io/badge/This_Readme_is_made_with_❣️_by-Priyam_Aggarwal-black" alt="attribute"></a>
+</div>
+
