@@ -8,6 +8,8 @@ import Link from "next/link";
 import Member from "./Member";
 import HelpSupport from "./HelpSupport";
 import TrashModal from './TrashModel';
+import Logout from "@/lib/Logout";
+import { LogOut } from "lucide-react";
 
 const LeftSidebar: React.FC = () => {
   const [notebooks, setNotebooks] = useState<{ name: string; pages: string[] }[]>([]); // State to handle notebooks with pages
@@ -22,7 +24,7 @@ const LeftSidebar: React.FC = () => {
   const addNewNotebook = () => {
     setNotebooks([...notebooks, { name: "Untitled", pages: [] }]); // Adds a new notebook
   };
-  
+
   const addPage = (notebookIndex: number) => {
     const updatedNotebooks = [...notebooks];
     updatedNotebooks[notebookIndex].pages.push("Page One"); // Adds a new page with default text
@@ -55,7 +57,7 @@ const LeftSidebar: React.FC = () => {
   const toggleMember = () => setMemberOpen(!isMemberOpen);
   const toggleHelp = () => setHelpOpen(!isHelpOpen);
   const toggleTrashModal = () => setIsTrashOpen(!isTrashOpen);
-  
+
 
   // Close the dropdown when clicking outside
   useEffect(() => {
@@ -79,7 +81,7 @@ const LeftSidebar: React.FC = () => {
       {/* Mobile Menu Button */}
       <button
         onClick={toggleSidebar}
-        className="lg:hidden fixed top-5 left-4 z-30 p-2 w-8 h-8 bg-black text-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 flex items-center justify-center"
+        className="fixed z-30 flex items-center justify-center w-8 h-8 p-2 text-white transition-all duration-300 transform bg-black rounded-full shadow-lg lg:hidden top-5 left-4 hover:scale-110"
       >
         {isSidebarOpen ? <FaTimes size={18} /> : <FaBars size={18} />}
       </button>
@@ -97,15 +99,15 @@ const LeftSidebar: React.FC = () => {
         </Link>
 
         {/* Main Section */}
-        <div className="mb-2 pb-2 border-b">
+        <div className="pb-2 mb-2 border-b">
           {/* Home */}
-          <div className="flex items-center space-x-3 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-900 p-1 pl-2 rounded">
+          <div className="flex items-center p-1 pl-2 space-x-3 rounded cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-900">
             <FaHome size={20} />
             <span>Home</span>
           </div>
           {/* Inbox */}
           <div
-            className="flex items-center space-x-3 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-900 p-1 pl-2 rounded"
+            className="flex items-center p-1 pl-2 space-x-3 rounded cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-900"
             onClick={toggleInbox} // Toggle inbox when clicked
           >
             <FaInbox size={20} />
@@ -113,7 +115,7 @@ const LeftSidebar: React.FC = () => {
           </div>
           {/* Members */}
           <div
-            className="flex items-center space-x-3 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-900 p-1 pl-2 rounded"
+            className="flex items-center p-1 pl-2 space-x-3 rounded cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-900"
             onClick={toggleMember}
           >
             <FaUserFriends size={20} />
@@ -122,31 +124,31 @@ const LeftSidebar: React.FC = () => {
         </div>
 
         {/* New Workbook Section */}
-        <div className="font-100 flex-grow">
-          <p className="text-l font-semibold">Workbook</p>
+        <div className="flex-grow font-100">
+          <p className="font-semibold text-l">Workbook</p>
           <button
             onClick={addNewNotebook}
-            className="flex mt-2 text-sm items-center space-x-3 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-900 p-2 pl-2 rounded"
+            className="flex items-center p-2 pl-2 mt-2 space-x-3 text-sm rounded cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-900"
           >
             <FaPlus size={16} />
             <span>Add New Notebook</span>
           </button>
 
           {/* Notebooks List */}
-          <div className="flex  flex-col  w-full h-full overflow-y-auto" style={{ maxHeight: 'calc(100vh - 350px)',minHeight: 'calc(100vh - 350px)' }}>
+          <div className="flex flex-col w-full h-full overflow-y-auto" style={{ maxHeight: 'calc(100vh - 350px)',minHeight: 'calc(100vh - 350px)' }}>
             <div className="space-y-1">
               {notebooks.map((notebook, notebookIndex) => (
                 <div
                   key={notebookIndex}
                   className="relative flex flex-col pl-2 rounded group"
                 >
-                  <div className="flex text-sm items-center justify-between cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-900 p-1 pl-2 pr-2 rounded">
+                  <div className="flex items-center justify-between p-1 pl-2 pr-2 text-sm rounded cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-900">
                     <div className="flex items-center space-x-3">
                       <FaBook size={16} />
                       <span>{notebook.name}</span>
                     </div>
                     {/* Plus Icon and Three Dots on Hover */}
-                    <div className="flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="flex space-x-2 transition-opacity opacity-0 group-hover:opacity-100">
                       <FaPlus
                         size={14}
                         className="cursor-pointer hover:text-gray-500"
@@ -165,19 +167,19 @@ const LeftSidebar: React.FC = () => {
                     {notebook.pages.map((page, pageIndex) => (
                       <div
                         key={pageIndex}
-                        className="relative flex item-center cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-900 p-1 pl-2 rounded group"
+                        className="relative flex p-1 pl-2 rounded cursor-pointer item-center hover:bg-gray-100 dark:hover:bg-gray-900 group"
                       >
-                        <div className="flex items-center space-x-3 flex-grow">
+                        <div className="flex items-center flex-grow space-x-3">
                           <FaFile size={16} />
                           <input
                             type="text"
                             value={page}
                             onChange={(event) => handlePageChange(event, notebookIndex, pageIndex)}
-                            className="border-none cursor-pointer w-20 bg-transparent text-black dark:text-white outline-none flex-grow"
+                            className="flex-grow w-20 text-black bg-transparent border-none outline-none cursor-pointer dark:text-white"
                           />
                         </div>
                         {/* Edit and Trash Icons on Hover */}
-                        <div className="flex space-x-2 p-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div className="flex p-1 space-x-2 transition-opacity opacity-0 group-hover:opacity-100">
                           <FaEdit
                             size={14}
                             className="cursor-pointer hover:text-gray-500"
@@ -194,13 +196,13 @@ const LeftSidebar: React.FC = () => {
                   {dropdownIndex === notebookIndex && (
                     <div
                       ref={dropdownRef}
-                      className="border absolute z-100 top-full right-0 w-40 bg-white dark:bg-black shadow-md rounded p-2 z-30"
+                      className="absolute right-0 z-30 w-40 p-2 bg-white border rounded shadow-md z-100 top-full dark:bg-black"
                     >
-                      <div className="flex items-center space-x-2 p-1 pl-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded cursor-pointer">
+                      <div className="flex items-center p-1 pl-2 space-x-2 rounded cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800">
                         <FaEdit size={14} />
                         <span>Edit Notebook</span>
                       </div>
-                      <div className="flex items-center space-x-2 p-1 pl-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded cursor-pointer">
+                      <div className="flex items-center p-1 pl-2 space-x-2 rounded cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800">
                         <FaTrash size={14} />
                         <span>Move to Trash</span>
                       </div>
@@ -215,17 +217,21 @@ const LeftSidebar: React.FC = () => {
 
 
         {/* Bottom Section */}
-        <div className="flex border-t text-sm items-end justify-between absolute bottom-0 left-0 w-full p-3 pl-6   bg-white dark:bg-black text-black dark:text-white transition-all duration-300">
-          <div className="flex flex-col space-y-1 pb-2">
-            <div className="flex items-center space-x-3 flex-row  cursor-pointer p-1">
+        <div className="absolute bottom-0 left-0 flex items-end justify-between w-full p-3 pl-6 text-sm text-black transition-all duration-300 bg-white border-t dark:bg-black dark:text-white">
+          <div className="flex flex-col pb-2 space-y-1">
+            <div className="flex flex-row items-center p-1 space-x-3 cursor-pointer">
               <FaUser size={16} />
               <span>User Profile</span>
             </div>
-            <div className="flex items-center space-x-3 flex-row  cursor-pointer p-1 " onClick={toggleTrashModal}>
+            <div className="flex flex-row items-center p-1 space-x-3 cursor-pointer " onClick={toggleTrashModal}>
               <FaTrash size={16} />
               <span>View Trash</span>
             </div>
-            <div className="flex items-center space-x-3 flex-row  cursor-pointer p-1 " onClick={toggleHelp}>
+            <div className="flex flex-row items-center p-1 space-x-3 cursor-pointer ">
+              <LogOut size={20} />
+              <Logout />
+            </div>
+            <div className="flex flex-row items-center p-1 space-x-3 cursor-pointer " onClick={toggleHelp}>
               <FaQuestionCircle size={20} />
               <span>Help & Support</span>
             </div>
@@ -237,7 +243,7 @@ const LeftSidebar: React.FC = () => {
       <Member isOpen={isMemberOpen} toggleMember={toggleMember} />
       <HelpSupport isOpen={isHelpOpen} toggleHelp={toggleHelp} />
       <TrashModal isOpen={isTrashOpen} toggleTrashModal={toggleTrashModal} />
-      
+
     </>
   );
 };

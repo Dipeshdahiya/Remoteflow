@@ -54,7 +54,7 @@ const Sidebar: React.FC = () => {
             {/* Outer circle */}
             <div className="w-6 h-6 border-2 border-white rounded-full"></div>
             {/* Inner circle */}
-            <div className="w-2 h-2 bg-white rounded-full absolute top-2 left-2"></div>
+            <div className="absolute w-2 h-2 bg-white rounded-full top-2 left-2"></div>
           </div>
         )}
       </button>
@@ -101,7 +101,7 @@ const Sidebar: React.FC = () => {
       {/* Overlay when sidebar is open */}
       {isOpen && (
         <div
-          className="fixed top-0 left-0 w-full h-full bg-black opacity-50 z-10"
+          className="fixed top-0 left-0 z-10 w-full h-full bg-black opacity-50"
           onClick={toggleSidebar}
         ></div>
       )}
