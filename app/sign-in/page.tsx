@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import {FaEye,FaEyeSlash} from 'react-icons/fa6'
 import Link from "next/link";
 const AuthPage = () => {
     const [signUpData, setSignUpData] = useState({
@@ -14,6 +15,8 @@ const AuthPage = () => {
         email: "",
         password: "",
     });
+    const [showPassword, setShowPassword] = useState(false);
+    const [showLoginPassword, setShowLoginPassword] = useState(false);
 
     // State to track the transition effect
     const [isPanelMoved, setIsPanelMoved] = useState(false);
@@ -120,11 +123,12 @@ const AuthPage = () => {
                             />
                         </div>
                         <div>
-                            <label htmlFor="password" className="block text-sm font-medium">
-                                Password
-                            </label>
+                        <label htmlFor="password" className="block text-sm font-medium">
+                            Password
+                        </label>
+                        <div className="relative">
                             <input
-                                type="password"
+                                type={showPassword ? 'text' : 'password'}
                                 id="password"
                                 name="password"
                                 value={signUpData.password}
@@ -132,6 +136,14 @@ const AuthPage = () => {
                                 className="mb-5 mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm py-3 px-4"
                                 required
                             />
+                            <button
+                                type="button"
+                                onClick={() => setShowPassword(!showPassword)}
+                                className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500"
+                            >
+                                {showPassword ? <FaEyeSlash/> : <FaEye/>}
+                            </button>
+                        </div>
                         </div>
                         <Link href={"/workspace"}>
                         <Button
@@ -163,22 +175,31 @@ const AuthPage = () => {
                             />
                         </div>
                         <div>
-                            <label
-                                htmlFor="loginPassword"
-                                className="block text-sm font-medium"
-                            >
-                                Password
-                            </label>
-                            <input
-                                type="password"
-                                id="loginPassword"
-                                name="password"
-                                value={loginData.password}
-                                onChange={handleLoginChange}
-                                className="mb-2 mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm py-3 px-4"
-                                required
-                            />
-                        </div>
+                <label
+                    htmlFor="loginPassword"
+                    className="block text-sm font-medium"
+                >
+                    Password
+                </label>
+                <div className="relative">
+                    <input
+                        type={showLoginPassword ? 'text' : 'password'}
+                        id="loginPassword"
+                        name="password"
+                        value={loginData.password}
+                        onChange={handleLoginChange}
+                        className="mb-2 mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm py-3 px-4"
+                        required
+                    />
+                    <button
+                        type="button"
+                        onClick={() => setShowLoginPassword(!showLoginPassword)}
+                        className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500"
+                    >
+                                {showLoginPassword ? <FaEyeSlash/> : <FaEye/>}
+                                </button>
+                </div>
+            </div>
                         <Button
                             type="submit"
                             className="w-full bg-black text-white py-2 rounded-md hover:bg-gray-800"
