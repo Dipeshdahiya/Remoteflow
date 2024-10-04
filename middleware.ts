@@ -8,8 +8,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 const auth = async () => {
   const cookie = cookies()
-  const token = cookie.get('accessToken') as  string | undefined
-
+  const token = cookie.get('accessToken') || cookie.get('next-auth.session-token') as  string | undefined
   if (!token) {
     return {error: 'No token, authorization denied' }
   }
