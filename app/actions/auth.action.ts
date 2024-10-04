@@ -21,8 +21,10 @@ export const signin = async (email: string, password: string) => {
   if (!user) {
     return ({ error: 'Invalid credentials' });
   }
-
-  const isMatch = await bcrypt.compare(password, user.password);
+  let isMatch = false;
+  if(user.password)
+     isMatch = await bcrypt.compare(password, user.password);
+  
 
   if (!isMatch) {
     return ({ error: 'Invalid credentials' });
@@ -118,7 +120,7 @@ export const signUp = async (name: string, email: string, password: string) => {
 
 export const logout = async () => {
   const cookie = cookies()
-  const token = cookie.get('accessToken') as string | undefined
+  const token = cookie.get('accessToken') || cookie.get('next-auth.session-token') as string | undefined
 
   if(!token){
     redirect('/sign-in')
@@ -126,5 +128,6 @@ export const logout = async () => {
   }
 
   cookie.delete('accessToken')
+  cookie.delete('next-auth.session-token')
   redirect('/sign-in')
 }

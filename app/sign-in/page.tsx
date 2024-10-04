@@ -2,10 +2,13 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { FaEye, FaEyeSlash } from 'react-icons/fa6'
+import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import Link from "next/link";
 import { signin, signUp } from "../actions/auth.action";
 import { useRouter } from "next/navigation";
+import { GoogleButton, GithubButton } from "@/components/button";
+import "@/public/google.svg"
+import "@/public/github.svg"
 const AuthPage = () => {
   const [signUpData, setSignUpData] = useState({
     name: "",
@@ -40,8 +43,11 @@ const AuthPage = () => {
   };
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
-    document.documentElement.setAttribute('data-theme', isDarkMode ? 'light' : 'dark');
-    localStorage.setItem('theme', isDarkMode ? 'light' : 'dark');
+    document.documentElement.setAttribute(
+      "data-theme",
+      isDarkMode ? "light" : "dark"
+    );
+    localStorage.setItem("theme", isDarkMode ? "light" : "dark");
   };
   // Handle input change for login form
   const handleLoginChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -52,33 +58,36 @@ const AuthPage = () => {
     });
   };
 
-  const handleSignUpSubmit = async(e: React.FormEvent) => {
+  const handleSignUpSubmit = async (e: React.FormEvent) => {
     console.log("holla man");
     e.preventDefault();
     // Handle sign-up submission logic here
-    const { error, success } = await signUp(signUpData.name, signUpData.email, signUpData.password);
+    const { error, success } = await signUp(
+      signUpData.name,
+      signUpData.email,
+      signUpData.password
+    );
 
-    if(error){
+    if (error) {
       alert(error);
+    } else {
+      router.replace("/workspace");
     }
-    else{
-      router.replace('/workspace');
-    }
-
   };
 
-  const handleLoginSubmit = async(e: React.FormEvent) => {
+  const handleLoginSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     // Handle login submission logic here
-    const { error, success } = await signin(loginData.email, loginData.password);
+    const { error, success } = await signin(
+      loginData.email,
+      loginData.password
+    );
 
-    if(error){
+    if (error) {
       alert(error);
+    } else {
+      router.replace("/workspace");
     }
-    else{
-      router.replace('/workspace');
-    }
-
   };
   const [headingText, setHeadingText] = useState("Welcome Back!");
   const [paragraphText, setParagraphText] = useState(
@@ -106,12 +115,14 @@ const AuthPage = () => {
       {/* Go Back button */}
       <Link
         href="/"
-        className={`fixed z-20 w-50 top-4 right-10 ${isPanelMoved ? "text-black" : "text-white"
-          } flex items-center bg-transparent text-[18px] py-2 px-4 rounded-full transition-all duration-1000 ease-in-out` + (isDarkMode ? "text-white " : "text-white")}
+        className={
+          `fixed z-20 w-50 top-4 right-10 ${
+            isPanelMoved ? "text-black" : "text-white"
+          } flex items-center bg-transparent text-[18px] py-2 px-4 rounded-full transition-all duration-1000 ease-in-out` +
+          (isDarkMode ? "text-white " : "text-white")
+        }
       >
-        <span className={`mr-2 bold `}>
-          &#8592;
-        </span>
+        <span className={`mr-2 bold `}>&#8592;</span>
         Go Back
       </Link>
       <div className="relative flex flex-grow">
@@ -153,7 +164,7 @@ const AuthPage = () => {
               </label>
               <div className="relative">
                 <input
-                  type={showPassword ? 'text' : 'password'}
+                  type={showPassword ? "text" : "password"}
                   id="password"
                   name="password"
                   value={signUpData.password}
@@ -170,12 +181,16 @@ const AuthPage = () => {
                 </button>
               </div>
             </div>
-              <Button
-                type="submit"
-                className="w-full py-2 text-white bg-black rounded-md hover:bg-gray-800"
-              >
-                Sign Up
-              </Button>
+            <Button
+              type="submit"
+              className="w-full py-2 text-white bg-black rounded-md hover:bg-gray-800"
+            >
+              Sign Up
+            </Button>
+            <div className="flex flex-row gap-2">
+              <GoogleButton/>
+              <GithubButton/>
+            </div>
           </form>
         </div>
 
@@ -206,7 +221,7 @@ const AuthPage = () => {
               </label>
               <div className="relative">
                 <input
-                  type={showLoginPassword ? 'text' : 'password'}
+                  type={showLoginPassword ? "text" : "password"}
                   id="loginPassword"
                   name="password"
                   value={loginData.password}
@@ -227,10 +242,12 @@ const AuthPage = () => {
               type="submit"
               className="w-full py-2 text-white bg-black rounded-md hover:bg-gray-800"
             >
-              <Link href={"/workspace"}>
-                Log In
-              </Link>
+              <Link href={"/workspace"}>Log In</Link>
             </Button>
+            <div className="flex flex-row gap-2">
+              <GoogleButton/>
+              <GithubButton/>
+            </div>
           </form>
           <div className="mt-4 text-center">
             <Link
@@ -244,14 +261,14 @@ const AuthPage = () => {
 
         {/* Animated Div */}
         <div
-          className={`absolute top-0 ${isPanelMoved ? "right-1/2" : "right-0"
-            } h-full w-1/2 border bg-black flex flex-col justify-center items-center shadow-lg transition-all duration-1000`}
+          className={`absolute top-0 ${
+            isPanelMoved ? "right-1/2" : "right-0"
+          } h-full w-1/2 border bg-black flex flex-col justify-center items-center shadow-lg transition-all duration-1000`}
           style={{
             borderRadius: isPanelMoved ? "0 20vw 20vw 0" : "20vw 0 0 20vw",
             boxShadow: "0 0 50px 20px rgba(255, 255, 255, 0.1)",
           }}
         >
-
           {/* Image */}
           <img
             src={imageSrc}
@@ -280,7 +297,6 @@ const AuthPage = () => {
             {buttonText}
           </Button>
         </div>
-
       </div>
     </div>
   );
