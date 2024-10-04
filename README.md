@@ -118,7 +118,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 <div>
   <h2>🙌 Our Amazing Contributors 🙌</h2>
   <a href="https://github.com/Dipeshdahiya/Remoteflow/graphs/contributors" align="center">
-  <img src="https://contrib.rocks/image?repo=Dipeshdahiya/Remoteflow" />
+  <img src="https://contrib.rocks/image?repo=Dipeshdahiya/Remoteflow&v=1" />
 </a>
 </div>
 <br><br>
