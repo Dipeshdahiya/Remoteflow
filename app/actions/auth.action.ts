@@ -11,7 +11,7 @@ export const signin = async (email: string, password: string) => {
   if (!email || !password) {
     return ({ error: 'Please provide email and password' });
   }
-
+  
   const user = await prisma.user.findUnique({
     where: {
       email
