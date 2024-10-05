@@ -13,6 +13,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@headlessui/react": "^1.7.19",
+    "@heroicons/react": "^2.1.5",
     "@hookform/resolvers": "^3.3.4",
     "@prisma/client": "^5.20.0",
     "@radix-ui/react-accordion": "^1.1.2",
@@ -47,6 +48,7 @@
     "tailwind-merge": "^2.2.0",
     "tailwindcss-animate": "^1.0.7",
     "ts-node": "^10.9.2",
+    "use-debounce": "^10.0.3",
     "zod": "^3.22.4"
   },
   "devDependencies": {
