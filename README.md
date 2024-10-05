@@ -62,6 +62,38 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
+<br><br>
+
+
+## 🐳 Running with Docker 🐳
+
+To run the application using Docker, follow these steps:
+
+1. Build the Docker Image
+First, build the Docker image by running:
+
+```bash
+docker build -t remoteflow .
+```
+2. Run the Docker Container
+Once the image is built, you can run the application using the following command:
+
+```bash
+docker run -e DATABASE_URL=<YOUR_DATABASE_URL> `
+-e JWT_SECRET="mysecretkey" `
+-e GOOGLE_CLIENT_ID=<YOUR_GOOGLE_CLIENT_ID> `
+-e GOOGLE_CLIENT_SECRET=<YOUR_GOOGLE_CLIENT_SECRET> `
+-e GITHUB_ID=<YOUR_GITHUB_ID> `
+-e GITHUB_SECRET=<YOUR_GITHUB_SECRET> `
+-e NEXTAUTH_URL="http://localhost:3000" `
+-e NEXTAUTH_SECRET="token_generated" `
+-p 3000:3000 remoteflow
+```
+
+This will start the application, and you can access it on http://localhost:3000.
+
+Make sure to replace the environment variables with your own credentials if necessary.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
