@@ -23,10 +23,12 @@ RemoteFlow/
 ├── prisma/                   # Prisma setup for database
 ├── public/                   # Public assets like images, etc.
 ├── readme_images/            # Images for the README
+├── .dockerignore             # Docker ignore rules
 ├── .env.example              # Example environment variables
 ├── .eslintrc.json            # ESLint configuration
 ├── .gitignore                # Git ignore rules
 ├── components.json           # Component registry/configuration
+├── Dockerfile                # Docker file to create Docker Image
 ├── global.d.ts               # Global TypeScript declarations
 ├── middleware.ts             # Middleware logic
 ├── next.config.js            # Next.js configuration
