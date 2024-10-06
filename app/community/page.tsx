@@ -4,7 +4,7 @@ import Footer from "@/components/footer"; // Assuming you have a Footer componen
 import Link from "next/link"; // For navigation links
 import { motion } from "framer-motion";
 import PreLoader from "@/components/loadingscreen"; // Assuming PreLoader is a loading component
-import Image from "next/image";
+import Image from "next/image"; // For images
 
 const fadeUpVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -74,11 +74,13 @@ const Community = () => {
                             custom={1}
                         >
                             <Image
+                                fill = {true}
                                 src="/assets/DancingDoodle.svg"
                                 alt="Buy Notes"
                                 className="absolute inset-0 object-cover w-full h-full transition-opacity opacity-100 group-hover:opacity-0 duration-300 ease-in-out"
                             />
                             <Image
+                                fill = {true}
                                 src="/assets/SprintingDoodle.svg"
                                 alt="Buy Notes Hover"
                                 className="absolute inset-0 object-cover w-full h-full transition-opacity duration-300 ease-in-out opacity-0 group-hover:opacity-100"
@@ -100,11 +102,13 @@ const Community = () => {
                             custom={2}
                         >
                             <Image
+                                fill = {true}
                                 src="/assets/DogJumpDoodle.svg"
                                 alt="Sell Notes"
                                 className="absolute inset-0 object-cover w-full h-full transition-opacity opacity-100 group-hover:opacity-0 duration-300 ease-in-out"
                             />
                             <Image
+                                fill = {true}
                                 src="/assets/DumpingDoodle.svg"
                                 alt="Sell Notes Hover"
                                 className="absolute inset-0 object-cover w-full h-full transition-opacity duration-300 ease-in-out opacity-0 group-hover:opacity-100"
@@ -127,11 +131,13 @@ const Community = () => {
                 >
                     <Link href="community/explore-notes" passHref>
                         <Image
+                            fill = {true}
                             src="/assets/ReadingDoodle.svg"
                             alt="Explore Free Notes"
                             className="absolute inset-0 object-cover w-full h-full transition-opacity opacity-100 group-hover:opacity-0 duration-300 ease-in-out"
                         />
                         <Image
+                            fill = {true}
                             src="/assets/MeditatingDoodle.svg"
                             alt="Explore Free Notes Hover"
                             className="absolute inset-0 object-cover w-full h-full transition-opacity duration-300 ease-in-out opacity-0 group-hover:opacity-100"
@@ -142,11 +148,6 @@ const Community = () => {
                         <p className="text-base text-black md:text-lg mt-4">Browse and download free study materials.</p>
                     </div>
                 </motion.div>
-            </div>
-            
-            {/* Footer at the bottom */}
-            <div className="border-t-2 border-gray-300">
-                <Footer />
             </div>
         </div>
     );

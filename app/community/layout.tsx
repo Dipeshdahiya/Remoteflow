@@ -21,12 +21,13 @@ export default function RootLayout({
     return (
         <>
             <Navbar />
-            <Suspense fallback={<PreLoader />}>
-                <div className='p-5 flex-col'>
-                    {children}
-                </div>
-            </Suspense>
-            <Footer/>
+            <div className='p-5 flex flex-col mt-14 w-full'>
+                {children}
+            </div>
+            {/* Footer at the bottom */}
+            <div className="border-t-2 border-gray-300">
+                <Footer />
+            </div>
         </>
     )
 }
