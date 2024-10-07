@@ -7,22 +7,22 @@ const notes = [
     {
         id: 1,
         title: 'Note 1',
-        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt alias minima ipsum accusamus, totam molestiae quod eaque ab officiis sed, veniam repellat fuga facilis! Maiores, repellendus sapiente amet omnis officia quibusdam cum unde, ab veritatis pariatur natus. Commodi, sint sunt!'
+        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt alias minima ipsum accusamus, totam molestiae quod eaque ab officiis sed, veniam repellat fuga facilis! Maiores'
     },
     {
         id: 2,
         title: 'Note 2',
-        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt alias minima ipsum accusamus, totam molestiae quod eaque ab officiis sed, veniam repellat fuga facilis! Maiores, repellendus sapiente amet omnis officia quibusdam cum unde, ab veritatis pariatur natus. Commodi, sint sunt!'
+        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt alias minima ipsum accusamus, totam molestiae quod eaque ab officiis sed, veniam repellat fuga facilis! Maiores'
     },
     {
         id: 3,
         title: 'Note 3',
-        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt alias minima ipsum accusamus, totam molestiae quod eaque ab officiis sed, veniam repellat fuga facilis! Maiores, repellendus sapiente amet omnis officia quibusdam cum unde, ab veritatis pariatur natus. Commodi, sint sunt!'
+        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt alias minima ipsum accusamus, totam molestiae quod eaque ab officiis sed, veniam repellat fuga facilis! Maiores'
     },
     {
         id: 4,
         title: 'Note 4',
-        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt alias minima ipsum accusamus, totam molestiae quod eaque ab officiis sed, veniam repellat fuga facilis! Maiores, repellendus sapiente amet omnis officia quibusdam cum unde, ab veritatis pariatur natus. Commodi, sint sunt!'
+        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt alias minima ipsum accusamus, totam molestiae quod eaque ab officiis sed, veniam repellat fuga facilis! Maiores'
     }
 ]
 

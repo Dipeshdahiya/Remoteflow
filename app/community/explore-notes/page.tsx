@@ -27,7 +27,7 @@ const ExploreNotes = async ({
             <div className='w-2/3 pt-2 pb-2 flex justify-center'>
                 <h1 className='w-fit text-2xl font-semibold'>Explore Notes</h1>
             </div>
-            <div className='w-2/3 p-5 flex flex-col items-center'>
+            <div className='w-full md:w-2/3 p-5 flex flex-col items-center'>
                 <div className="mt-4 flex items-center justify-between gap-2 md:mt-8 w-full">
                     <Search placeholder="Search free notes..." />
                 </div>

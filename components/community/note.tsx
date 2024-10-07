@@ -1,42 +1,48 @@
 import React from "react";
-import Image from 'next/image';
 import Link from 'next/link';
 
-const Note = ({ title, author, desc, preview}: {
+const Note = ({ title, author, desc, preview }: {
     title: string;
-    author : string;
+    author: string;
     desc: string;
     preview: string;
-}) =>{
+}) => {
     return (
-        <div className="flex border border-gray-200 rounded-xl w-full h-60 mt-4">
-            <div className="w-1/3 h-full">
-                <Link className='w-full rounded-xl'
-                        href="/"
-                        rel="noopener noreferrer" 
-                        target="_blank">
+        <div className="flex flex-col md:flex-row border border-gray-200 dark:border-gray-600 rounded-xl w-full h-auto md:h-60 mt-4">
+            {/* Image Section */}
+            <div className="w-full md:w-1/3 h-50 md:h-full">
+                <Link
+                    href="/"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    className="block w-full h-full rounded-xl overflow-hidden"
+                >
                     <img
                         src={preview}
-                        className="w-full h-full rounded-xl"
+                        className="object-cover w-full h-full"
                         alt={title}
                     />
                 </Link>
             </div>
-            <div className="w-2/3 p-4 flex flex-col h-full items-baseline">
-                <div className="h-1/3">
-                    <h1 className="text-xl font-semibold">{title}</h1>
-                    <Link 
-                        href ={`/user/${author}`}
+
+            {/* Content Section */}
+            <div className="w-full md:w-2/3 p-4 flex flex-col">
+                <div className="flex flex-col justify-center align-baseline h-10 mb-2">
+                    <h1 className="text-lg md:text-xl font-semibold">{title}</h1>
+                    <Link
+                        href={`/user/${author}`}
                         rel="noopener noreferrer"
                         target="_blank"
-                    ><code className="text-lg hover:text-gray-500 text-blue-500">@{author}</code></Link>
+                    >
+                        <code className="text-sm md:text-lg hover:text-gray-500 text-blue-500">@{author}</code>
+                    </Link>
                 </div>
-                <div className="h-2/3 p-2">
-                    <p className="text-sm">{desc}</p>
+                <div className="text-sm md:text-base">
+                    <p>{desc}</p>
                 </div>
             </div>
         </div>
-    )
+    );
 };
 
 export default Note;
