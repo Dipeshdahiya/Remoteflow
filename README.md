@@ -23,10 +23,12 @@ RemoteFlow/
 ├── prisma/                   # Prisma setup for database
 ├── public/                   # Public assets like images, etc.
 ├── readme_images/            # Images for the README
+├── .dockerignore             # Docker ignore rules
 ├── .env.example              # Example environment variables
 ├── .eslintrc.json            # ESLint configuration
 ├── .gitignore                # Git ignore rules
 ├── components.json           # Component registry/configuration
+├── Dockerfile                # Docker file to create Docker Image
 ├── global.d.ts               # Global TypeScript declarations
 ├── middleware.ts             # Middleware logic
 ├── next.config.js            # Next.js configuration
@@ -61,6 +63,38 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+
+<br><br>
+
+
+## 🐳 Running with Docker 🐳
+
+To run the application using Docker, follow these steps:
+
+1. Build the Docker Image
+First, build the Docker image by running:
+
+```bash
+docker build -t remoteflow .
+```
+2. Run the Docker Container
+Once the image is built, you can run the application using the following command:
+
+```bash
+docker run -e DATABASE_URL=<YOUR_DATABASE_URL> `
+-e JWT_SECRET="mysecretkey" `
+-e GOOGLE_CLIENT_ID=<YOUR_GOOGLE_CLIENT_ID> `
+-e GOOGLE_CLIENT_SECRET=<YOUR_GOOGLE_CLIENT_SECRET> `
+-e GITHUB_ID=<YOUR_GITHUB_ID> `
+-e GITHUB_SECRET=<YOUR_GITHUB_SECRET> `
+-e NEXTAUTH_URL="http://localhost:3000" `
+-e NEXTAUTH_SECRET="token_generated" `
+-p 3000:3000 remoteflow
+```
+
+This will start the application, and you can access it on http://localhost:3000.
+
+Make sure to replace the environment variables with your own credentials if necessary.
 
 ## Learn More
 
