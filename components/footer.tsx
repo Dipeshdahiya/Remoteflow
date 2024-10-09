@@ -50,7 +50,7 @@ const Footer = () => {
         <Link href="/community" className="hover:underline">
           Community
         </Link>
-        <Link href="/log-in" className="hover:underline">
+        <Link href="/sign-in" className="hover:underline">
           Login
         </Link>
       </div>
