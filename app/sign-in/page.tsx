@@ -6,7 +6,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import Link from "next/link";
 import { signin, signUp } from "../actions/auth.action";
 import { useRouter } from "next/navigation";
-import { GoogleButton, GithubButton } from "@/components/button";
+import { GoogleButton } from "@/components/button";
 import "@/public/google.svg"
 import "@/public/github.svg"
 const AuthPage = () => {
@@ -62,11 +62,7 @@ const AuthPage = () => {
     console.log("holla man");
     e.preventDefault();
     // Handle sign-up submission logic here
-    const { error, success } = await signUp(
-      signUpData.name,
-      signUpData.email,
-      signUpData.password
-    );
+    const { error, success } = await signUp({...signUpData});
 
     if (error) {
       alert(error);
@@ -78,10 +74,7 @@ const AuthPage = () => {
   const handleLoginSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     // Handle login submission logic here
-    const { error, success } = await signin(
-      loginData.email,
-      loginData.password
-    );
+    const { error, success } = await signin({...loginData});
 
     if (error) {
       alert(error);
@@ -116,8 +109,7 @@ const AuthPage = () => {
       <Link
         href="/"
         className={
-          `fixed z-20 w-50 top-4 right-10 ${
-            isPanelMoved ? "text-black" : "text-white"
+          `fixed z-20 w-50 top-4 right-10 ${isPanelMoved ? "text-black" : "text-white"
           } flex items-center bg-transparent text-[18px] py-2 px-4 rounded-full transition-all duration-1000 ease-in-out` +
           (isDarkMode ? "text-white " : "text-white")
         }
@@ -187,11 +179,10 @@ const AuthPage = () => {
             >
               Sign Up
             </Button>
-            <div className="flex flex-row gap-2">
-              <GoogleButton/>
-              <GithubButton/>
-            </div>
           </form>
+          <div className="flex flex-row mt-4 w-3/4">
+            <GoogleButton />
+          </div>
         </div>
 
         {/* Right side for Login */}
@@ -244,9 +235,8 @@ const AuthPage = () => {
             >
               <Link href={"/workspace"}>Log In</Link>
             </Button>
-            <div className="flex flex-row gap-2">
-              <GoogleButton/>
-              <GithubButton/>
+            <div className="flex flex-row mt-4">
+              <GoogleButton />
             </div>
           </form>
           <div className="mt-4 text-center">
@@ -261,9 +251,8 @@ const AuthPage = () => {
 
         {/* Animated Div */}
         <div
-          className={`absolute top-0 ${
-            isPanelMoved ? "right-1/2" : "right-0"
-          } h-full w-1/2 border bg-black flex flex-col justify-center items-center shadow-lg transition-all duration-1000`}
+          className={`absolute top-0 ${isPanelMoved ? "right-1/2" : "right-0"
+            } h-full w-1/2 border bg-black flex flex-col justify-center items-center shadow-lg transition-all duration-1000`}
           style={{
             borderRadius: isPanelMoved ? "0 20vw 20vw 0" : "20vw 0 0 20vw",
             boxShadow: "0 0 50px 20px rgba(255, 255, 255, 0.1)",

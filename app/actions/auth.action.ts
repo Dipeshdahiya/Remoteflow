@@ -1,133 +1,57 @@
 "use server"
-import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
-import prisma from "@/lib/prisma";
-import { cookies } from 'next/headers'
-import { redirect } from 'next/navigation';
+import { signIn, signOut } from '@/auth';
 
+export const signin = async ({ email, password }: { email: string, password: string }) => {
+  try {
 
-export const signin = async (email: string, password: string) => {
+    const response = await signIn("credentials", {
+      redirectTo: "/workspace",
+      email,
+      password,
+    });
 
-  if (!email || !password) {
-    return ({ error: 'Please provide email and password' });
+    return { success: true };
+  } catch (error: any) {
+    return { error: error.message };
   }
-  
-  const user = await prisma.user.findUnique({
-    where: {
-      email
-    }
-  });
+};
 
-  if (!user) {
-    return ({ error: 'Invalid credentials' });
-  }
-  let isMatch = false;
-  if(user.password)
-     isMatch = await bcrypt.compare(password, user.password);
-  
-
-  if (!isMatch) {
-    return ({ error: 'Invalid credentials' });
-  }
-
-  const payload = {
-    user: {
-      id: user.id
-    }
-  }
-
-  if (!process.env.JWT_SECRET) {
-    return ({ error: 'Developer Error:- JWT secret is not defined' });
-  }
-
-  const token = jwt.sign(payload, process.env.JWT_SECRET, {
-    expiresIn: 36000
-  });
-
-  if (!token) {
-    return ({ error: 'Developer Error:- JWT token is not generated' });
-  }
-
-  cookies().set({
-    name: 'accessToken',
-    value: token,
-    httpOnly: true,
-    path: '/',
-    expires: new Date(Date.now() + 36000 * 1000)
-  })
-
-  return { success: user };
-}
-
-export const signUp = async (name: string, email: string, password: string) => {
-
-  if (!name || !email || !password) {
-    return ({ error: 'Please provide name, email and password' });
-  }
-
-  console.log("Email:- ", email, "Password:- ", password, "Name:- ", name)
-
-  const user = await prisma.user.findUnique({
-    where: {
-      email
-    }
-  });
-
-  if (user) {
-    return ({ error: 'User already exists' });
-  }
-
-  const salt = await bcrypt.genSalt(10);
-
-  const hashedPassword = await bcrypt.hash(password, salt);
-
-  const newUser = await prisma.user.create({
-    data: {
+export const signUp = async ({ name, email, password }: { name: string, email: string, password: string }) => {
+  try {
+    const response = await signIn("credentials", {
+      redirect: false,
       name,
       email,
-      password: hashedPassword
-    }
-  });
+      password,
+    });
 
-  const payload = {
-    user: {
-      id: newUser.id
-    }
+    return { success: true };
+  } catch (error: any) {
+    console.log(error, 'error from SignUp')
+    const message = error.message.split('.')[0]
+    return { error: message };
   }
+};
 
-  if (!process.env.JWT_SECRET) {
-    return ({ error: 'Developer Error:- JWT secret is not defined' });
+export const handleGoogleSignIn = async () => {
+  try {
+    console.log('signing in with google');
+    await signIn("google", { redirectTo: "/workspace" });
+    console.log('signed in with google');
+    
+  } catch (error) {
+    console.log(error,'error from handleGoogleSignIn')
+    throw error;
   }
-
-  const token = jwt.sign(payload, process.env.JWT_SECRET, {
-    expiresIn: 36000
-  });
-
-  if (!token) {
-    return ({ error: 'Developer Error:- JWT token is not generated' });
-  }
-
-  cookies().set({
-    name: 'accessToken',
-    value: token,
-    httpOnly: true,
-    path: '/',
-    expires: new Date(Date.now() + 36000 * 1000)
-  })
-
-  return { success: newUser };
-}
+};
 
 export const logout = async () => {
-  const cookie = cookies()
-  const token = cookie.get('accessToken') || cookie.get('next-auth.session-token') as string | undefined
 
-  if(!token){
-    redirect('/sign-in')
-    return {error: 'No token, authorization denied' }
-  }
-
-  cookie.delete('accessToken')
-  cookie.delete('next-auth.session-token')
-  redirect('/sign-in')
+  try {
+    console.log('Logging Out')
+    await signOut({ redirectTo: '/sign-in' });
+  } catch (error: any) {
+    console.log(error, 'error logging out')
+    throw error;
+  } 
 }
