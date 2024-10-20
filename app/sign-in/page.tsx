@@ -7,8 +7,10 @@ import Link from "next/link";
 import { signin, signUp } from "../actions/auth.action";
 import { useRouter } from "next/navigation";
 import { GoogleButton, GithubButton } from "@/components/button";
+import forgotPassword from "../forgot-password/page";
 import "@/public/google.svg"
 import "@/public/github.svg"
+
 const AuthPage = () => {
   const [signUpData, setSignUpData] = useState({
     name: "",

@@ -36,7 +36,7 @@ const SecondSection = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   const handleScrollToFifthSection = () => {
-    document.getElementById("fifth-section")?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById("fourth-section")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -56,7 +56,7 @@ const SecondSection = () => {
       </motion.div>
 
       <motion.div
-        className="py-4 xl:w-1/4 text-center px-8"
+        className="py-4 xl:w-1/3 text-center px-8"
         custom={1}
         variants={fadeUpVariants}
       >

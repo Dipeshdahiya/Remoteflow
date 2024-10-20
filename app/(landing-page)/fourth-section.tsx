@@ -92,6 +92,7 @@ const FourthSection = () => {
       animate={sectionInView ? "visible" : "hidden"}
       variants={fadeUpVariants}
       custom={0}
+      id="fourth-section"
       className="flex flex-col pt-20 xl:py-32 items-center justify-center"
     >
       <motion.div
