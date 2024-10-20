@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { PiArrowRight } from "react-icons/pi";
 import { TbSwitch3 } from "react-icons/tb";
@@ -133,7 +134,9 @@ const SixthSection = () => {
         custom={3}
         className={`text-sky-500 flex items-center hover:underline cursor-pointer `}
       >
+         <Link href="/sign-in" className="flex items-center">
         Learn more <PiArrowRight className="ml-3 text-sm" />
+           </Link>
       </motion.div>
       <div className={`grid grid-cols-12 md:row-span-2 gap-4 xl:gap-6 mt-8 px-8 md:px-16 xl:px-0 xl:w-3/4 2xl:w-[55%] mx-auto md:w-full`}>
         {tabs.map((tab, index) => (
