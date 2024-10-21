@@ -6,6 +6,7 @@ import Link from "next/link"; // For navigation links
 import { motion } from "framer-motion";
 import PreLoader from "@/components/loadingscreen"; // Assuming PreLoader is a loading component
 
+
 const fadeUpVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: (i: number) => ({
