@@ -10,12 +10,12 @@
 </div>
 <br><br>
 
-RemoteFlow is a user-friendly, collaborative notes-making platform designed to streamline team collaboration. It features a secure login and signup system, a dynamic dashboard for easy navigation, and seamless real-time editing. With its intuitive interface, users can effortlessly manage notes, collaborate with team members, and track document changes. The dashboard ensures easy access to ongoing projects, while the responsive design guarantees a smooth experience across all devices. Whether for personal organization or team productivity, RemoteFlow simplifies the way users interact and work together online.
+```RemoteFlow``` is a user-friendly, collaborative notes-making platform designed to streamline team collaboration. It features a secure login and signup system, a dynamic dashboard for easy navigation, and seamless real-time editing. With its intuitive interface, users can effortlessly manage notes, collaborate with team members, and track document changes. The dashboard ensures easy access to ongoing projects, while the responsive design guarantees a smooth experience across all devices. Whether for personal organization or team productivity, RemoteFlow simplifies the way users interact and work together online.
 
 <br><br>
 
 ## ⚛ Project Structure ⚛
-bash
+```bash
 RemoteFlow/
 ├── app/                      # Application logic
 ├── components/               # Reusable components
@@ -39,7 +39,7 @@ RemoteFlow/
 ├── tailwind.config.js        # Tailwind CSS configuration (JS)
 ├── tailwind.config.ts        # Tailwind CSS configuration (TS)
 ├── tsconfig.json             # TypeScript configuration
-
+```
 
 
 <br><br>
@@ -48,7 +48,7 @@ RemoteFlow/
 
 First, run the development server:
 
-bash
+```bash
 npm run dev
 # or
 yarn dev
@@ -56,7 +56,7 @@ yarn dev
 pnpm dev
 # or
 bun dev
-
+```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
@@ -74,13 +74,13 @@ To run the application using Docker, follow these steps:
 1. Build the Docker Image
 First, build the Docker image by running:
 
-bash
+```bash
 docker build -t remoteflow .
-
+```
 2. Run the Docker Container
 Once the image is built, you can run the application using the following command:
 
-bash
+```bash
 docker run -e DATABASE_URL=<YOUR_DATABASE_URL> `
 -e JWT_SECRET="mysecretkey" `
 -e GOOGLE_CLIENT_ID=<YOUR_GOOGLE_CLIENT_ID> `
@@ -90,7 +90,7 @@ docker run -e DATABASE_URL=<YOUR_DATABASE_URL> `
 -e NEXTAUTH_URL="http://localhost:3000" `
 -e NEXTAUTH_SECRET="token_generated" `
 -p 3000:3000 remoteflow
-
+```
 
 This will start the application, and you can access it on http://localhost:3000.
 
@@ -119,9 +119,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
   - *Fork*: Grab your personal copy by forking the repository.
   - *Clone*: Bring it on your local machine with git clone YOUR-REPO-LINK.
-  bash
+  ```bash
     git clone YOUR-REPO-LINK
-
+```
   - *Setup*: Install necessary tools. Just run command.
 
   ### 2️⃣ Making Meaningful Changes
@@ -133,17 +133,17 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
   - *Test*: Before anything, make sure everything works as expected.
   - *Branch*: Keep your work organized by creating a new branch with:
-   bash
+   ```bash
     git checkout -b feature/your-feature-name
-
+```
   - *Commit*: Make sure your commit messages are clear and descriptive. For example:
-  bash
+  ```bash
     git commit -m 'Add some feature'
-
+```
   - *Push*: Push your changes to your repository using:
-  bash
+  ```bash
    git push origin feature/your-feature-name
-
+```
   - *PR*: Last but not least, open a pull request. We promise to review it as soon as possible!## 💡 How to Contribute
 </div>
 
@@ -151,7 +151,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## 📲 Check Responsive 📲
 
-RemoteFlow is designed with a mobile-first approach, ensuring usability across all devices. Click the image below to check its responsive design.
+```RemoteFlow``` is designed with a mobile-first approach, ensuring usability across all devices. Click the image below to check its responsive design.
 
 <div align="center">
   <a href="https://ui.dev/amiresponsive?url=https://remoteflow.vercel.app/" target="_blank">
