@@ -10,12 +10,12 @@
 </div>
 <br><br>
 
-```RemoteFlow``` is a user-friendly, collaborative notes-making platform designed to streamline team collaboration. It features a secure login and signup system, a dynamic dashboard for easy navigation, and seamless real-time editing. With its intuitive interface, users can effortlessly manage notes, collaborate with team members, and track document changes. The dashboard ensures easy access to ongoing projects, while the responsive design guarantees a smooth experience across all devices. Whether for personal organization or team productivity, RemoteFlow simplifies the way users interact and work together online.
+RemoteFlow is a user-friendly, collaborative notes-making platform designed to streamline team collaboration. It features a secure login and signup system, a dynamic dashboard for easy navigation, and seamless real-time editing. With its intuitive interface, users can effortlessly manage notes, collaborate with team members, and track document changes. The dashboard ensures easy access to ongoing projects, while the responsive design guarantees a smooth experience across all devices. Whether for personal organization or team productivity, RemoteFlow simplifies the way users interact and work together online.
 
 <br><br>
 
-## ⚛️ Project Structure ⚛️
-```bash
+## ⚛ Project Structure ⚛
+bash
 RemoteFlow/
 ├── app/                      # Application logic
 ├── components/               # Reusable components
@@ -40,7 +40,7 @@ RemoteFlow/
 ├── tailwind.config.ts        # Tailwind CSS configuration (TS)
 ├── tsconfig.json             # TypeScript configuration
 
-```
+
 
 <br><br>
 
@@ -48,7 +48,7 @@ RemoteFlow/
 
 First, run the development server:
 
-```bash
+bash
 npm run dev
 # or
 yarn dev
@@ -56,13 +56,13 @@ yarn dev
 pnpm dev
 # or
 bun dev
-```
+
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+You can start editing the page by modifying app/page.tsx. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+This project uses [next/font](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
 <br><br>
 
@@ -74,13 +74,13 @@ To run the application using Docker, follow these steps:
 1. Build the Docker Image
 First, build the Docker image by running:
 
-```bash
+bash
 docker build -t remoteflow .
-```
+
 2. Run the Docker Container
 Once the image is built, you can run the application using the following command:
 
-```bash
+bash
 docker run -e DATABASE_URL=<YOUR_DATABASE_URL> `
 -e JWT_SECRET="mysecretkey" `
 -e GOOGLE_CLIENT_ID=<YOUR_GOOGLE_CLIENT_ID> `
@@ -90,7 +90,7 @@ docker run -e DATABASE_URL=<YOUR_DATABASE_URL> `
 -e NEXTAUTH_URL="http://localhost:3000" `
 -e NEXTAUTH_SECRET="token_generated" `
 -p 3000:3000 remoteflow
-```
+
 
 This will start the application, and you can access it on http://localhost:3000.
 
@@ -117,29 +117,41 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
   ### 1️⃣ Getting Started
 
-  - **Fork**: Grab your personal copy by forking the repository.
-  - **Clone**: Bring it on your local machine with git clone YOUR-REPO-LINK.
-  - **Setup**: Install necessary tools. Just run command.
+  - *Fork*: Grab your personal copy by forking the repository.
+  - *Clone*: Bring it on your local machine with git clone YOUR-REPO-LINK.
+  bash
+    git clone YOUR-REPO-LINK
+
+  - *Setup*: Install necessary tools. Just run command.
 
   ### 2️⃣ Making Meaningful Changes
 
-  - **Understand**: Dive deep and understand the project structure.
-  - **Code**: Always follow our coding standards. We believe in clean and readable code!
+  - *Understand*: Dive deep and understand the project structure.
+  - *Code*: Always follow our coding standards. We believe in clean and readable code!
 
   ### 3️⃣ Share Your Brilliance: Create a Pull Request
 
-  - **Test**: Before anything, make sure everything works as expected.
-  - **Branch**: Keep it clean. Create a new one with `git checkout -b feature/your-feature-name`.
-  - **Commit**: Make it meaningful! Use `git commit -m 'Add some feature'`.
-  - **Push**: Send your changes with `git push origin feature/your-feature-name`.
-  - **PR**: Last but not least, open a pull request. We promise to review it as soon as possible!## 💡 How to Contribute
+  - *Test*: Before anything, make sure everything works as expected.
+  - *Branch*: Keep your work organized by creating a new branch with:
+   bash
+    git checkout -b feature/your-feature-name
+
+  - *Commit*: Make sure your commit messages are clear and descriptive. For example:
+  bash
+    git commit -m 'Add some feature'
+
+  - *Push*: Push your changes to your repository using:
+  bash
+   git push origin feature/your-feature-name
+
+  - *PR*: Last but not least, open a pull request. We promise to review it as soon as possible!## 💡 How to Contribute
 </div>
 
 <br><br>
 
 ## 📲 Check Responsive 📲
 
-```RemoteFlow``` is designed with a mobile-first approach, ensuring usability across all devices. Click the image below to check its responsive design.
+RemoteFlow is designed with a mobile-first approach, ensuring usability across all devices. Click the image below to check its responsive design.
 
 <div align="center">
   <a href="https://ui.dev/amiresponsive?url=https://remoteflow.vercel.app/" target="_blank">
@@ -160,9 +172,3 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
   <img src="https://contrib.rocks/image?repo=Dipeshdahiya/Investment-bot" alt="Contributions" align="left">
   <h3 align="left">Maintained By - Dipesh Dahiya <br>(https://github.com/Dipeshdahiya)</h3>
 </div>
-<br><br>
-
-<div align="center">
-<a href="https://github.com/priyamaggarwal18"><img src="https://img.shields.io/badge/This_Readme_is_made_with_❣️_by-Priyam_Aggarwal-black" alt="attribute"></a>
-</div>
-
