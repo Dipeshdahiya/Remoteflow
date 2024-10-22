@@ -154,7 +154,7 @@ const AuthPage = () => {
                 name="email"
                 value={signUpData.email}
                 onChange={handleSignUpChange}
-                className="block w-full px-4 py-3 mt-1 border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                className="block w-full px-4 py-3 mt-1 border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm bg-white dark:bg-white dark:text-black "
                 required
               />
             </div>
@@ -169,7 +169,7 @@ const AuthPage = () => {
                   name="password"
                   value={signUpData.password}
                   onChange={handleSignUpChange}
-                  className="block w-full px-4 py-3 mt-1 mb-5 border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                  className="block w-full px-4 py-3 mt-1 mb-5 border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm bg-white dark:bg-white dark:text-black "
                   required
                 />
                 <button
