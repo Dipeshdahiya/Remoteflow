@@ -1,24 +1,21 @@
 import { signIn } from "next-auth/react";
 
 export function GoogleButton() {
-    return <button
-    onClick={async () => {
+    return<img src="/assets/google-icon.png" className="w-16 h-16 cursor-pointer hover:"
+      onClick={async () => {
       await signIn("google");
     }}
-    className="bg-gray-200 shadow-sm flex-grow text-black font-semibold p-4 rounded-xl hover:bg-gray-100 flex items-center gap-2 justify-center"
-  >
-    <img src="google.svg" width="20px" alt="" />
-    Sign In with google
-  </button>;
+    >
+    </img>
+
+
 }
 export function GithubButton() {
-    return <button
+    return<img src="/assets/github-icon.png" className="w-16 h-16 cursor-pointer"
     onClick={async () => {
-      await signIn("github");
-    }}
-    className="bg-gray-900 shadow-sm flex-grow text-white font-semibold p-4 rounded-xl hover:bg-gray-800 flex items-center gap-2 justify-center"
+    await signIn("github");
+  }}
   >
-    <img src="github.svg" width="30px" alt="" />
-    Sign In with Github
-  </button>;
+  </img>
+    
 }
