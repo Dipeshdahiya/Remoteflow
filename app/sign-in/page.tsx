@@ -129,40 +129,36 @@ const AuthPage = () => {
       <div className="relative flex flex-grow">
         {/* Left side for Sign Up */}
         <div className="flex flex-col items-center justify-center w-1/2 p-8">
-          <h2 className="mb-6 text-2xl font-bold">Sign Up</h2>
+        <h2 className="mb-6 text-6xl font-bold">Welcome!</h2>
+        <h2 className="mb-6 text-1xl text-[#6f6e6e] text-center">Simplify your workflow and boost you productivity with <br></br><span className="font-bold text-[#515050]">RemoteFlow</span>. Get sarted for free.</h2>
           <form onSubmit={handleSignUpSubmit} className="w-3/4 space-y-4">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium">
-                Name
-              </label>
               <input
                 type="text"
                 id="name"
                 name="name"
                 value={signUpData.name}
                 onChange={handleSignUpChange}
-                className="block w-full px-4 py-3 mt-1 border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm bg-white dark:bg-white dark:text-black"
+                className="block w-full px-4 py-3 mt-1 border border-gray-300 rounded-3xl shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm bg-white dark:bg-white dark:text-black"
                 required
+                placeholder="Name"
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm font-medium">
-                Email
-              </label>
+              
               <input
                 type="email"
                 id="email"
                 name="email"
                 value={signUpData.email}
                 onChange={handleSignUpChange}
-                className="block w-full px-4 py-3 mt-1 border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm bg-white dark:bg-white dark:text-black "
+                className="block w-full px-4 py-3 mt-1 border border-gray-300 rounded-3xl shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm bg-white dark:bg-white dark:text-black "
                 required
+                placeholder="Email"
               />
             </div>
             <div>
-              <label htmlFor="password" className="block text-sm font-medium">
-                Password
-              </label>
+              
               <div className="relative">
                 <input
                   type={showPassword ? "text" : "password"}
@@ -170,8 +166,9 @@ const AuthPage = () => {
                   name="password"
                   value={signUpData.password}
                   onChange={handleSignUpChange}
-                  className="block w-full px-4 py-3 mt-1 mb-5 border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm bg-white dark:bg-white dark:text-black "
+                  className="block w-full px-4 py-3 mt-1 mb-5 border border-gray-300 rounded-3xl shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm bg-white dark:bg-white dark:text-black "
                   required
+                  placeholder="Password"
                 />
                 <button
                   type="button"
@@ -184,7 +181,7 @@ const AuthPage = () => {
             </div>
             <Button
               type="submit"
-              className="w-full py-2 text-white bg-black rounded-md hover:bg-gray-800"
+              className="w-full py-3 text-white bg-black rounded-3xl hover:bg-gray-800"
             >
               Sign Up
             </Button>
