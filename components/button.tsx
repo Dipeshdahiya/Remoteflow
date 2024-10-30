@@ -1,7 +1,7 @@
 import { signIn } from "next-auth/react";
 
 export function GoogleButton() {
-    return<img src="/assets/google-icon.png" className="w-16 h-16 cursor-pointer hover:"
+    return<img src="/assets/G.png" className="w-14 h-14 cursor-pointer hover:"
       onClick={async () => {
       await signIn("google");
     }}
@@ -11,7 +11,7 @@ export function GoogleButton() {
 
 }
 export function GithubButton() {
-    return<img src="/assets/github-icon.png" className="w-16 h-16 cursor-pointer"
+    return<img src="/assets/github-icon.png" className="w-14 h-14 cursor-pointer"
     onClick={async () => {
     await signIn("github");
   }}
