@@ -118,8 +118,7 @@ const AuthPage = () => {
       <Link
         href="/"
         className={
-          `fixed z-20 w-50 top-4 right-10 ${
-            isPanelMoved ? "text-black" : "text-white"
+          `fixed z-20 w-50 top-4 right-10 ${isPanelMoved ? "text-black" : "text-white"
           } flex items-center bg-transparent text-[18px] py-2 px-4 rounded-full transition-all duration-1000 ease-in-out` +
           (isDarkMode ? "text-white " : "text-white")
         }
@@ -189,52 +188,53 @@ const AuthPage = () => {
             >
               Sign Up
             </Button>
-            <div className="flex flex-row gap-2">
-              <GoogleButton/>
-              <GithubButton/>
+            <div className="flex items-center">
+              <div className="flex-grow border-t border-gray-300"></div>
+              <span className="px-4 text-gray-500">or continue with</span>
+              <div className="flex-grow border-t border-gray-300"></div>
+            </div>
+            <div className="flex flex-row gap-2 justify-center">
+              <GoogleButton />
+              <GithubButton />
             </div>
           </form>
         </div>
 
         {/* Right side for Login */}
         <div className="relative flex flex-col items-center justify-center w-1/2 p-8">
-          <h2 className="mb-6 text-2xl font-bold">Login</h2>
+          <h2 className="mb-6 text-6xl font-bold">Welcome back!</h2>
+          <h2 className="mb-6 text-1xl text-[#6f6e6e] text-center">Simplify your workflow and boost you productivity with <br></br><span className="font-bold text-[#515050]">RemoteFlow</span>. Get sarted for free.</h2>
           <form onSubmit={handleLoginSubmit} className="w-3/4 space-y-4">
             <div>
-              <label htmlFor="loginEmail" className="block text-sm font-medium">
-                Email
-              </label>
+
               <input
                 type="email"
                 id="loginEmail"
                 name="email"
                 value={loginData.email}
                 onChange={handleLoginChange}
-                className="block w-full px-4 py-3 mt-1 border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                className="block w-full px-4 py-3 mt-1 border border-gray-300 rounded-3xl shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                 required
+                placeholder="Email"
               />
             </div>
             <div>
-              <label
-                htmlFor="loginPassword"
-                className="block text-sm font-medium"
-              >
-                Password
-              </label>
+
               <div className="relative">
                 <input
                   type={showLoginPassword ? "text" : "password"}
                   id="loginPassword"
                   name="password"
+                  placeholder="password"
                   value={loginData.password}
                   onChange={handleLoginChange}
-                  className="block w-full px-4 py-3 mt-1 mb-2 border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                  className="block w-full px-4 py-3 mt-1 mb-2 border border-gray-300 rounded-3xl shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                   required
                 />
                 <button
                   type="button"
                   onClick={() => setShowLoginPassword(!showLoginPassword)}
-                  className="absolute text-gray-500 transform -translate-y-1/2 right-2 top-1/2"
+                  className="absolute text-gray-500  transform -translate-y-1/2 right-2 top-1/2"
                 >
                   {showLoginPassword ? <FaEyeSlash /> : <FaEye />}
                 </button>
@@ -242,13 +242,19 @@ const AuthPage = () => {
             </div>
             <Button
               type="submit"
-              className="w-full py-2 text-white bg-black rounded-md hover:bg-gray-800"
+              className="w-full py-3 text-white bg-black rounded-3xl hover:bg-gray-800"
             >
               <Link href={"/workspace"}>Log In</Link>
             </Button>
-            <div className="flex flex-row gap-2">
-              <GoogleButton/>
-              <GithubButton/>
+            <div className="flex items-center">
+              <div className="flex-grow border-t border-gray-300"></div>
+              <span className="px-4 text-gray-500">or continue with</span>
+              <div className="flex-grow border-t border-gray-300"></div>
+            </div>
+            <div className="flex flex-row gap-2 justify-center">
+
+              <GoogleButton />
+              <GithubButton />
             </div>
           </form>
           <div className="mt-4 text-center">
@@ -263,9 +269,8 @@ const AuthPage = () => {
 
         {/* Animated Div */}
         <div
-          className={`absolute top-0 ${
-            isPanelMoved ? "right-1/2" : "right-0"
-          } h-full w-1/2 border bg-black flex flex-col justify-center items-center shadow-lg transition-all duration-1000`}
+          className={`absolute top-0 ${isPanelMoved ? "right-1/2" : "right-0"
+            } h-full w-1/2 border bg-black flex flex-col justify-center items-center shadow-lg transition-all duration-1000`}
           style={{
             borderRadius: isPanelMoved ? "0 20vw 20vw 0" : "20vw 0 0 20vw",
             boxShadow: "0 0 50px 20px rgba(255, 255, 255, 0.1)",
