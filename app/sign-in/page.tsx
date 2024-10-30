@@ -133,6 +133,7 @@ const AuthPage = () => {
         <h2 className="mb-6 text-1xl text-[#6f6e6e] text-center">Simplify your workflow and boost you productivity with <br></br><span className="font-bold text-[#515050]">RemoteFlow</span>. Get sarted for free.</h2>
           <form onSubmit={handleSignUpSubmit} className="w-3/4 space-y-4">
             <div>
+              
               <input
                 type="text"
                 id="name"
