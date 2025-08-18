@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { GoogleButton, GithubButton } from "@/components/button";
 
 const AuthPage = () => {
   const router = useRouter();
@@ -25,10 +24,9 @@ const AuthPage = () => {
   const [showLoginPassword, setShowLoginPassword] = useState(false);
 
   const [isPanelMoved, setIsPanelMoved] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const [imageSrc, setImageSrc] = useState("assets/BalletDoodle.svg");
 
-  // simple redirect on submit
+  // Redirect to /workspace on form submit (no backend check)
   const handleSignUpSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     router.push("/workspace");
@@ -68,7 +66,7 @@ const AuthPage = () => {
           isPanelMoved ? "text-black" : "text-white"
         } flex items-center bg-transparent text-[18px] py-2 px-4 rounded-full transition-all duration-1000 ease-in-out`}
       >
-        <span className="mr-2 bold">&#8592;</span>
+        <span className="mr-2 font-bold">&#8592;</span>
         Go Back
       </Link>
 
@@ -76,8 +74,8 @@ const AuthPage = () => {
         {/* Left side for Sign Up */}
         <div className="flex flex-col items-center justify-center w-1/2 p-8">
           <h2 className="mb-6 text-6xl font-bold">Welcome!</h2>
-          <h2 className="mb-6 text-1xl text-[#6f6e6e] text-center">
-            Simplify your workflow and boost you productivity with <br />
+          <h2 className="mb-6 text-lg text-[#6f6e6e] text-center">
+            Simplify your workflow and boost your productivity with <br />
             <span className="font-bold text-[#515050]">RemoteFlow</span>. Get
             started for free.
           </h2>
