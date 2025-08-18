@@ -9,24 +9,33 @@ import { useRouter } from "next/navigation";
 const AuthPage = () => {
   const router = useRouter();
 
+  // Sign Up state
   const [signUpData, setSignUpData] = useState({
     name: "",
     email: "",
     password: "",
   });
 
+  // Login state
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
   });
 
+  // Show/hide password toggle
   const [showPassword, setShowPassword] = useState(false);
   const [showLoginPassword, setShowLoginPassword] = useState(false);
 
+  // Panel state
   const [isPanelMoved, setIsPanelMoved] = useState(false);
   const [imageSrc, setImageSrc] = useState("assets/BalletDoodle.svg");
+  const [headingText, setHeadingText] = useState("Welcome Back!");
+  const [paragraphText, setParagraphText] = useState(
+    "To keep connected with us, please login with your personal info."
+  );
+  const [buttonText, setButtonText] = useState("Login");
 
-  // Redirect to /workspace on form submit (no backend check)
+  // Redirect to workspace directly (no auth check)
   const handleSignUpSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     router.push("/workspace");
@@ -37,12 +46,7 @@ const AuthPage = () => {
     router.push("/workspace");
   };
 
-  const [headingText, setHeadingText] = useState("Welcome Back!");
-  const [paragraphText, setParagraphText] = useState(
-    "To keep connected with us, please login with your personal info."
-  );
-  const [buttonText, setButtonText] = useState("Login");
-
+  // Toggle animated panel
   const togglePanelMove = () => {
     setIsPanelMoved((prev) => !prev);
     setImageSrc(
