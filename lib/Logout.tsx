@@ -1,13 +1,20 @@
 "use client"
 import React from "react"
+import { useRouter } from "next/navigation"
 
 type Props = {
   children?: React.ReactNode
 }
 
 const Logout = ({ children }: Props) => {
+  const router = useRouter()
+
+  const handleLogout = () => {
+    router.push("/") // 🚀 redirect to home
+  }
+
   return (
-    <button onClick={() => alert("Logout clicked (no auth setup)")}>
+    <button onClick={handleLogout}>
       {children || "Logout"}
     </button>
   )
