@@ -1,25 +1,16 @@
-import type { Metadata } from 'next'
-import { Outfit } from 'next/font/google'
-import { Providers } from "./providers";
-import './globals.css'
+"use client"
+import React from "react"
 
-const font = Outfit({ subsets: ['latin'] })
-
-export const metadata: Metadata = {
-  title: 'Your Connected Workspace',
-  description: 'Bird - Simple and powerful notes & docs for teams',
+type Props = {
+  children?: React.ReactNode
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+const Logout = ({ children }: Props) => {
   return (
-    <html lang="en" className="!scroll-smooth focus:scroll-auto">
-      <body className={font.className}>
-        <Providers>{children}</Providers>
-        </body>
-    </html>
+    <button onClick={() => alert("Logout clicked (no auth setup)")}>
+      {children || "Logout"}
+    </button>
   )
 }
+
+export default Logout
