@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useRouter } from "next/navigation";
 
 const AuthPage = () => {
@@ -33,9 +34,12 @@ const AuthPage = () => {
   };
 
   const handleLoginSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    router.push("/workspace");
-  };
+  e.preventDefault();
+  console.log("Login submitted");  // debug
+  router.push("/workspace");
+};
+
+
 
   const [headingText, setHeadingText] = useState("Welcome Back!");
   const [paragraphText, setParagraphText] = useState(
