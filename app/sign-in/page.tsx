@@ -185,23 +185,46 @@ const AuthPage = () => {
 
         {/* Animated Panel */}
         <div
-          className={`absolute top-0 ${
-            isPanelMoved ? "right-1/2" : "right-0"
-          } h-full w-1/2 bg-black flex flex-col justify-center items-center transition-all duration-1000`}
-          style={{
-            borderRadius: isPanelMoved ? "0 20vw 20vw 0" : "20vw 0 0 20vw",
-          }}
-        >
-          <img src={imageSrc} alt="Image" className="h-[30%] mb-6" />
-          <h3 className="mb-4 text-2xl font-bold text-white">{headingText}</h3>
-          <p className="px-4 mb-6 text-center text-white">{paragraphText}</p>
-          <Button
-            className="px-6 py-2 text-white border rounded-full"
-            onClick={togglePanelMove}
-          >
-            {buttonText}
-          </Button>
-        </div>
+  className={`absolute top-0 ${
+    isPanelMoved ? "right-1/2" : "right-0"
+  } h-full w-1/2 flex flex-col justify-center items-center transition-all duration-1000`}
+  style={{
+    borderRadius: isPanelMoved ? "0 20vw 20vw 0" : "20vw 0 0 20vw",
+    backgroundColor: darkMode ? "white" : "black", // bg based on mode
+  }}
+>
+  <img
+    src={imageSrc}
+    alt="Image"
+    className="h-[30%] mb-6"
+    style={{
+      filter: darkMode ? "invert(0)" : "invert(1)", // invert for dark/light
+    }}
+  />
+  <h3
+    className="mb-4 text-2xl font-bold"
+    style={{ color: darkMode ? "black" : "white" }}
+  >
+    {headingText}
+  </h3>
+  <p
+    className="px-4 mb-6 text-center"
+    style={{ color: darkMode ? "black" : "white" }}
+  >
+    {paragraphText}
+  </p>
+  <Button
+    className="px-6 py-2 border rounded-full"
+    style={{
+      color: darkMode ? "black" : "white",
+      borderColor: darkMode ? "black" : "white",
+    }}
+    onClick={togglePanelMove}
+  >
+    {buttonText}
+  </Button>
+</div>
+
       </div>
     </div>
   );
