@@ -1,26 +1,25 @@
-"use client"
-import React from "react"
-import { useRouter } from "next/navigation"
+import type { Metadata } from 'next'
+import { Outfit } from 'next/font/google'
+import { Providers } from "./providers";
+import './globals.css'
 
-type Props = {
-  children?: React.ReactNode
+const font = Outfit({ subsets: ['latin'] })
+
+export const metadata: Metadata = {
+  title: 'Your Connected Workspace',
+  description: 'Bird - Simple and powerful notes & docs for teams',
 }
 
-const Logout = ({ children }: Props) => {
-  const router = useRouter()
-
-  const handleClick = () => {
-    router.push("/workspace") // 🚀 Redirect straight to workspace
-  }
-
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <button
-      onClick={handleClick}
-      className="px-4 py-2 bg-black text-white rounded-lg"
-    >
-      {children || "Go to Workspace"}
-    </button>
+    <html lang="en" className="!scroll-smooth focus:scroll-auto">
+      <body className={font.className}>
+        <Providers>{children}</Providers>
+        </body>
+    </html>
   )
 }
-
-export default Logout
