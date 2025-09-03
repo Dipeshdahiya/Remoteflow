@@ -190,7 +190,11 @@ const AuthPage = () => {
     borderRadius: isPanelMoved ? "0 20vw 20vw 0" : "20vw 0 0 20vw",
   }}
 >
-  <img src={imageSrc} alt="Image" className="h-[30%] mb-6" />
+  <img
+    src={imageSrc}
+    alt="Image"
+    className="h-[30%] mb-6 filter invert brightness-200"
+  />
   <h3 className="mb-4 text-2xl font-bold text-white">{headingText}</h3>
   <p className="px-4 mb-6 text-center text-white">{paragraphText}</p>
   <Button
@@ -200,6 +204,7 @@ const AuthPage = () => {
     {buttonText}
   </Button>
 </div>
+
 
       </div>
     </div>
