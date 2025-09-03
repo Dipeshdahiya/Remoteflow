@@ -1,20 +1,14 @@
 "use client"
-import { logout } from '@/app/actions/auth.action'
-import React from 'react'
+import React from "react"
 
-type props = {
-  className?: string
+type Props = {
+  children?: React.ReactNode
 }
 
-const Logout = (props: props) => {
+const Logout = ({ children }: Props) => {
   return (
-    <button
-      onClick={async() => {
-        logout()
-      }}
-      className={props.className}
-    >
-      Logout
+    <button onClick={() => alert("Logout clicked (no auth setup)")}>
+      {children || "Logout"}
     </button>
   )
 }
